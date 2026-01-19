@@ -1,8 +1,8 @@
 import java.util.*;
 public class LCM {
-    //Brute force approach
+    //Euclid force approach
     static int BruteLcm(int a, int b){
-        
+        //lcm(a,b) = (a*b)/gcd(a, b);
         return (a*b)/Gabrieallamegcd(a, b);
     }
 
