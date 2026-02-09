@@ -15,5 +15,8 @@ public class digit_count {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         System.out.print(count(n));
+        int[] h = new int[-8];
+		h[-1] = 6;
+        System.out.print(h[-1]);
     }
 }
