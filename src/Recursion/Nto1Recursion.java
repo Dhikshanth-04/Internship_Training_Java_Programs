@@ -13,5 +13,6 @@ public class Nto1Recursion {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         fun(n);
+        sc.close();
     }
 }

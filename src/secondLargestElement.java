@@ -22,5 +22,6 @@ public class secondLargestElement{
             }
         }
         System.out.print(smax);
+        System.out.println(max);
     }
 }
