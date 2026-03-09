@@ -9,13 +9,9 @@ public class SubArray{
         }
     }
 
-    public static void printSubArraySum(int[] arr, int k, int target){
-        
-    }
-
     public static void printAllSubArray(int[] arr, int target){
         int count = 0;
-        for(int size=1;size<=arr.length;size++){
+        for(int size=arr.length;size>=1;size--){
         for(int i=0;i<=arr.length-size;i++){
             int sum = 0;
             for(int j=i;j<i+size;j++){
@@ -26,7 +22,7 @@ public class SubArray{
             for(int j=i;j<i+size;j++){
                 System.out.print(arr[j]+" ");
             }
-            System.out.println();
+            return;
         }
         }
     }
