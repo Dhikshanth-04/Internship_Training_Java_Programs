@@ -22,14 +22,18 @@ class Emp1{
     }
     @Override
     public String toString(){
-        return eId+" "+"Alex"+" "+eSalary;
+        return eId+" "+eName+" "+eSalary;
     }
 }
 
 public class ToStringExp {
     public static void main(String[] args){
         Emp1 e = new Emp1(1,"Steve",30000);
-        System.out.println(e);
+        System.out.println(e.toString());
+        Integer a = Integer.valueOf(10);//purely object oriented, Wrapper class
+        int[]  arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = arr1;
+        
 
     }
 }
