@@ -10,6 +10,19 @@ public class decimal_2_binary {
         return b;
     }
 
+    public static String toggle(String bit){
+        String out="";
+        for(int i=0;i<bit.length();i++){
+            if(bit.charAt(i)=='1'){
+                out = out+'0';
+            }
+            else{
+                out = out+'1';
+            }
+        }
+        return out;
+    }
+
     //Iterate from the last index of the string, once the chat at 'i' is '1' add to powof2, 
     //then increase the powof2 exponentially, base 2
     static int b2d(String b){
@@ -29,8 +42,11 @@ public class decimal_2_binary {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         String b = d2b(n);
-        System.out.println(b);
-        System.out.println(b2d(b));
+        String nn = toggle(b);
+        //System.out.println(b);
+        System.out.println(b2d(nn));
+        //System.out.println(nn);
+        
 
     }
 }

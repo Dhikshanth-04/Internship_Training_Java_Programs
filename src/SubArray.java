@@ -1,14 +1,5 @@
 import java.util.*;
 public class SubArray{
-    public static void printSubArrays(int[] arr, int k){
-        for(int i=0;i<=arr.length-k;i++){
-            for(int j=i;j<i+k;j++){
-                System.out.print(arr[j]+" ");
-            }
-        System.out.println();
-        }
-    }
-
     public static void printAllSubArray(int[] arr, int target){
         int count = 0;
         for(int size=arr.length;size>=1;size--){
