@@ -1,6 +1,9 @@
 abstract class Bird{
     abstract public void fly();
     abstract public void eat();
+    public void hello(){
+        System.out.println("Heloo");
+    }
 }
 
 abstract class Eagle extends Bird{
@@ -36,5 +39,7 @@ public class Abstraction {
         ref = ge;
         ref.eat();
         ref.fly();
+
+        ref.hello();
     }
 }
