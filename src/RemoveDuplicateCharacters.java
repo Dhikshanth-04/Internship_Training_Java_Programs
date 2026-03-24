@@ -17,5 +17,7 @@ class RemoveDeuplicateCharacters{
         String str = sc.nextLine();
         String res = removeDuplicateChar(str);
         System.out.println(res);
+        
+        sc.close();
     }
 }
