@@ -23,8 +23,33 @@
  * 
  */
 
+
+
+/*
+ * LinkedHashSet
+ * Hierarchy : LinkedHashSet -> SequencedSet -> SequencedCollection -> Collections -> Iterable
+ * initial capacity : 16
+ * Internal Data structure : Hash table, Doubly linked list
+ * Initial capacity : 16 (bucket locations)
+ * Storage : inputData -> hashFunction -> HashAddress(Storage location in set), This is Hashing
+ * Re-Sizing : Once the 75% of the set is filled, the set size will be doubled, 16 to 32, this is load Factor
+ * Heterogeneous data, null values are allowed
+ * No Duplicates are allowed
+ * Order of insertion is preserved
+ * Accessing / Insertion : O(1)
+ * 
+ * when to use :
+ * Insertion / Deletion in O(1)
+ * Insertion order has to be preserved
+ * No Duplicate entries, null can be input
+ */
+
+
+
+
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 public class HashSetColl {
 public static void main(String[] args) {
 HashSet hs = new HashSet();
@@ -40,6 +65,16 @@ System.out.println(hs); //[30, 40, 20, 10, 50, 60] - Insertion order is not pres
 hs1.add(60);
 hs1.add(80);
 hs1.add(90);
+
+
+LinkedHashSet lhs = new LinkedHashSet();
+lhs.add(10);
+lhs.add(20);
+lhs.add(30);
+lhs.add(40);
+lhs.add(50);
+System.out.println(lhs); //[10, 20, 30, 40, 50] - Insertion order is preserved
+
 
 //Iteration through HashSet
 //1. For-Each Loop
