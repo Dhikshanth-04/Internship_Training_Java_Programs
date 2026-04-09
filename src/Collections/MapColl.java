@@ -119,5 +119,24 @@ tm.remove(2);
 System.out.println("After remove key 2: " + tm);
 tm.clear();
 System.out.println("After clear: " + tm);
+
+TreeMap<Integer, String> dem = new TreeMap();
+dem.put(1, "A");
+dem.put(3, "C");
+dem.put(5, "E");
+dem.put(2, "B");
+dem.put(4, "D");
+
+//Iteration through Map
+//1. For-each loop - keySet
+for(Object i : dem.keySet()) {
+	System.out.println(i+" "+dem.get(i));
+}
+
+//2. For-each loop - Entry set
+for (Map.Entry<Integer, String> entry : dem.entrySet()) {
+    System.out.println(entry.getKey() + " " + entry.getValue());
+}
+
 }
 }
