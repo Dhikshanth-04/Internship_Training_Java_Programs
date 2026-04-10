@@ -138,5 +138,41 @@ for (Map.Entry<Integer, String> entry : dem.entrySet()) {
     System.out.println(entry.getKey() + " " + entry.getValue());
 }
 
+
+//Arrays to Map : counting the occurence of elements
+int[] arr = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1};
+
+HashMap<Integer, Integer> arrHM = new HashMap();
+for(int i:arr) {
+	arrHM.put(i, arrHM.getOrDefault(i, 0)+1);
+}
+
+LinkedHashMap<Integer, Integer> arrLHM = new LinkedHashMap<>();
+for(int i:arr) {
+	arrLHM.put(i, arrLHM.getOrDefault(i, 0)+1);
+}
+
+TreeMap<Integer, Integer> arrTM = new TreeMap<>();
+for(int i:arr) {
+	arrTM.put(i, arrTM.getOrDefault(i, 0)+1);
+}
+
+//Retriving the elements from them
+//HashMap
+for(Object i : arrHM.keySet()) {
+	System.out.println(i+" "+arrHM.get(i));
+}
+
+//LinkedHashMap
+for(Object i : arrLHM.keySet()) {
+	System.out.println(i+" "+arrHM.get(i));
+}
+
+//TreeMap
+for(Object i : arrTM.keySet()) {
+	System.out.println(i+" "+arrHM.get(i));
+}
+
+
 }
 }
