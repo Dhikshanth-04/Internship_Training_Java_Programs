@@ -1,5 +1,3 @@
-package AdvancedJava;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,34 +5,55 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JDBC {
+	private static final String URL = "jdbc:mysql://localhost:3306/employee";
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "Lannisters@3000";
+	private static final String SELECT_QUERY = "select * from details";
+	private static final String INSERT_QUERY = "insert into details(e-id, e-name, e-mail, e_dept, e_salary) values (6, 'Ebin','ebin@gmail.com','IT',45000)";
+	
 	public static void main(String[] args){
-		String url = "jdbc:mysql://localhost:3306/employee";
-		String username = "root";
-		String password = "Lannisters@3000";
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet res = null;
 		try {
 			//1.Load the drivers
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver is loaded");
 			
 			//2.Establish connection
-			Connection con = DriverManager.getConnection(url, username, password);
+			con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			System.out.println("Connection established");
 			
 			//3.Create statement
-			Statement stmt = con.createStatement();
+			stmt = con.createStatement();
 			System.out.println("Statement is created");
 			
 			//4.Execute query
-			ResultSet res = stmt.executeQuery("select * from details");
+			stmt.executeUpdate(INSERT_QUERY);
 			System.out.println("Table retrived");
 			
+		
+			
 			//5.Process the output
-			printResultSet(res);
+			//printResultSet(res);
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+//				if(res!=null) {
+//					res.close();
+//				}
+				if(stmt!=null) {
+					stmt.close();
+				}else if(con!=null) {
+					res.close();
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	static void printResultSet(ResultSet res) throws SQLException {
@@ -52,4 +71,3 @@ public class JDBC {
 
 	}
 }
-
