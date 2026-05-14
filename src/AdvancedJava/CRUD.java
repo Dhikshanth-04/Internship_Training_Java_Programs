@@ -33,6 +33,18 @@ public class CRUD {
 			e.printStackTrace();
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try{
+				if(res!=null) {
+					res.close();
+				}else if(pstmt!=null) {
+					pstmt.close();
+				}else if(con!=null) {
+					con.close();
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
