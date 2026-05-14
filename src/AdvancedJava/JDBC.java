@@ -9,8 +9,7 @@ public class JDBC {
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "Lannisters@3000";
 	private static final String SELECT_QUERY = "select * from details";
-	private static final String INSERT_QUERY = "insert into details(e-id, e-name, e-mail, e_dept, e_salary) values (6, 'Ebin','ebin@gmail.com','IT',45000)";
-	
+
 	public static void main(String[] args){
 		Connection con = null;
 		Statement stmt = null;
@@ -29,13 +28,11 @@ public class JDBC {
 			System.out.println("Statement is created");
 			
 			//4.Execute query
-			stmt.executeUpdate(INSERT_QUERY);
+			stmt.executeUpdate(SELECT_QUERY);
 			System.out.println("Table retrived");
 			
-		
-			
 			//5.Process the output
-			//printResultSet(res);
+			printResultSet(res);
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
@@ -43,9 +40,9 @@ public class JDBC {
 			e.printStackTrace();
 		}finally {
 			try {
-//				if(res!=null) {
-//					res.close();
-//				}
+				if(res!=null) {
+					res.close();
+				}
 				if(stmt!=null) {
 					stmt.close();
 				}else if(con!=null) {
