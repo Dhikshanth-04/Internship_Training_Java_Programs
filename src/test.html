@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p class="demo">Execution of JavaScript has two phases, Memory allocation phase and execution phase. In memory phase, varibales and functions are stored in the memory first, before the code actually executes line by line.</p>
+    
+    
+    <p class="demo">Hoisting is the JavaScript's behaviour, in which the variables are moved to the top of their scope during memory creatin phase. var is hoisted and initialised with undefined, besides let and const are hoisted and remains in the temporal dead zone, untill its declaration executed.</p>
+    
+
+    <p class="demo">Temporal Dead Zone is the time between the memory allocation and actual declaration execution. The DOM API is the methods and properties. API methods are the actions performing on html elements and API values are accessing the html elements</p>
+
+    <p id="demo">DOMContentLoaded is activated when the whole HTML file is loaded, except the external resources. Window Load is activated when the whole html file is ready along with the external resources.</p><br>
+
+    <form name="myForm" onsubmit="return validateForm()">
+        <label for="name">User name : </label>
+        <input typr="text" id="name" name="name">
+        <input type="submit">
+    </form>
+    <br>
+
+    <label for="number">Enter the number between 0 to 10 : </label>
+    <input type="number" id="number" name="number">
+    <button type="button" onclick="validatenumber()">submit</button>
+    <p id="test"></p>
+    <br>
+
+    <button id="btn">Click to Time</button>
+    <p id="demo1"></p>
+
+    <div id="box" style="width: 200px; height:100px; border: 2px solid #000; ">mouse out</div> <br>
+
+    <p id="miss">"missing element : "</p>
+
+    <input type="text" id="key" placeholder="Enter any key">
+    <p id="keyPress"></p>
+
+
+</body>
+<script>
+    try{
+        let k = document.getElementById("key");
+        k.addEventListener("keydown", function(event){ document.getElementById("keyPress").innerText = "You pressed : "+event.code;});
+
+
+
+        let x = document.getElementsByClassName("demo");
+        document.getElementById("test").innerHTML = x[0].innerHTML;
+
+        function validateForm(){
+            let name = document.forms["myForm"]["name"].value;
+            if(name == ""){
+                alert("Enter name");
+                return false;
+            }
+        }
+
+        function validatenumber(){
+            let x =document.getElementById("number").value;
+            if(x>=0 && x<=10){
+                document.getElementById("test").innerText = "Valid";
+            }else{
+                document.getElementById("test").innerText = "InValid";
+            }
+        }
+
+        //addEventListener method is used to separate html and javascript blocks separated.
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function(){document.getElementById("demo1").innerText = Date();});
+
+        let box = document.getElementById("box");
+        box.addEventListener("mouseout", function(){box.innerText = "mouse out"});
+                box.addEventListener("mouseover", function(){box.innerText = "mouse Over"});
+
+
+        let arr = [1,4,3,5];
+        let sum = 0;
+        for(let i=0; i<arr.length; i++){
+            sum += arr[i];
+        }
+        let tot = (arr.length * arr.length+1)/2;
+        document.getElementById("miss").innerText = "missingelement : "+ (tot-sum);
+    }catch(err){
+        document.getElementById("test").innerText = err;
+    }
+</script>
+
+</html>

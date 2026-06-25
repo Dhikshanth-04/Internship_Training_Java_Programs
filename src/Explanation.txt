@@ -1,0 +1,37 @@
+1. Exception Handling : 
+
+    * Exception handling is the process of handling the Exception, which causes the abrupt termination of the program.
+    * If the programmer misses to handle the Exceptions, Java itself has its default Exception handler, the exception object is handled by that handler.
+    * The abrupt termination of the program is caused by 2 reasons, Error and Exception.
+    * Errors are raised due to the faulty coding and Exceptions are raised due to the faulty inputs. 
+    * There are two different types of exceptions, Checked and Unchecked exception.
+    * Checked exceptions are the exceptions, must be handled by the programmer.
+    * Unchecked exceptions are the exceptions, may or may not be handled, but the program would execute.
+    * There are different methods of handling an exception, Try-catch-finally blocks and ducking an exception.
+    * The risky part of the code is written inside the try block and the excpected exceptions are written in the catch block, finally block is executed at any cost.
+    * Ducking an exception is the process of writting the method with the keyword throws, mentioning that the method may cause an exception.
+    * That exception object will be handled by the caller of the method. 
+    
+    Code;
+    class main{
+        public static void main(String[] args){
+            Scanner sc = new Scanner(System.in);
+            try{
+                int numerator = sc.nextInt();
+                int denominator = sc.nextInt();
+                System.out.println("The division : " + numerator/denominator);
+            }
+            catch(ArithmaticException  e){
+                System.out.println(e);
+            }
+            catch(InputMismatchException e){
+                System.out.println(e);
+            }
+            catch(Exception e){ //Genric Exception
+                System.out.println(e);
+            }
+            finally{
+                System.out.println("Program execution completed");
+            }
+        }
+    }
