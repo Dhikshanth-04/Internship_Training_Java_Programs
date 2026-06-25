@@ -11,7 +11,7 @@
     * The risky part of the code is written inside the try block and the excpected exceptions are written in the catch block, finally block is executed at any cost.
     * Ducking an exception is the process of writting the method with the keyword throws, mentioning that the method may cause an exception.
     * That exception object will be handled by the caller of the method. 
-    
+
     Code;
     class main{
         public static void main(String[] args){
@@ -33,5 +33,25 @@
             finally{
                 System.out.println("Program execution completed");
             }
+        }
+    }
+
+2. Constructors : 
+    * Constructors are the special methods in java, which does not have any return type and written exactly with the name of the class. 
+    * Constructors are the default setters, which are used to set the value of the data members in the class. 
+    * These Constructors are called, during the creation of the object for a class.
+    * There are three different type of constructors - Zero parameterised, Parameterised, Default constructors.
+    * If the programmer misses to the write the constructor, Java itself has its initiates the default constructor.
+    * Constructor can be overloaded, and can be called within the constructor is called constructor chaining.
+    
+    Code;
+    class Employee{
+        public  Employee(){
+            System.out.println("Constructor called");
+        } 
+    }
+    class Main{
+        public static void main(String[] args){
+            Employee e = new Employee(); //Constructor called
         }
     }
