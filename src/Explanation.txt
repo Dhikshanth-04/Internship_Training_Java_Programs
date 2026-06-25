@@ -99,3 +99,60 @@
             b.start();
         }
     }
+
+5. Abstraction :
+    * Abstraction is the process of hiding the implementation and providing the essential details to the users. 
+    * The keyword abstract is used to create abstract method and abstract class. The abstract methods are the methods, which does not have body.
+    * Class extending the abstract should provide the body for the abstract method.
+    * We cant create the object for the abstract class, because it has an abstract method.
+    * Abstract class can also have a concrete methods. Besides, the abstract class can have constructors.
+    Code;
+    abstract class A{
+        abstract void demo();
+    }
+    class B extends A{
+        @Override 
+        public void demo(){
+            System.out.println("Body provided in child class");
+        }
+    }
+    class Main{
+        public static void main(String[] args){
+            B b = new B();
+            b.demo();
+        }
+    }
+
+6. Polymorphism :
+    * Polymorphism is the greek word, in which poly means many and morphism means forms. In java Polymorphism means, one methods which does different operations on different situations. 
+    * There are two different type of Polymorphism, run time Polymorphism and compile time Polymorphism.
+    * Run time Polymorphism is acheived by method overriding and the compile time Polymorphism is acheived by method overloading. 
+    * Compile time Polymorphism is also known as false Polymorphism, where multiple methods are written with same name and different parameters and different return types, which method to be executed is defined by the set of arguments passed to the method.
+    * Run time Polymorphism is also known as True Polymorphism, where the parent class methods will be overriden by the child class methods and executed according to the object creations.
+    
+    Code - Compile time Polymorphism;
+    int add(int a, int b) return a+b;
+    double add(double a, double b) return a+b;
+    main(){
+        add(2.2, 5.5);
+        add(3, 5);
+    } 
+
+    Code - Runtime Polymorphism;
+    class parent{
+        void run(){
+            System.out.println("Parent");
+        }
+    }
+    class Child extends parent{
+        @Override
+        void run(){
+            System.out.println("Child");
+        }
+    }
+    class Main{
+        public static void main(String[] args){
+            Parent ch = new Child();
+            ch.run(); //Child
+        }
+    }
