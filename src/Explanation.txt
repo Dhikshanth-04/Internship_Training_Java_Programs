@@ -55,3 +55,47 @@
             Employee e = new Employee(); //Constructor called
         }
     }
+
+3. Why strings are immutable in java ?
+    * Strings are the collections of characters enclosed within the double qutoes, there are two different types of Strings - immutable and mutable.
+    * immutable strings are the strings, which cant be modified further. Because 90% of the data in the real world were strings, so povide an additional security and making them thread safe.
+    * Strings are stroed in the string constant pool, If the strings are created with the new, it would be stored outside the string constant pool. 
+    * Duplicate strings are not allowed inside the string constant pool, but its allowed outside the string constant pool.
+    Code;
+    main(){
+        String str1 = "Java"; //str1 - 1000
+        String str2 = "Java"; //str2 - 1000
+        //Both the strings are created inside the string constant pool, but the memory address for the both the varibales would be same.
+    }
+
+4. Multi-Threading : 
+    * At the beginning, threads are the light weight and smallest executionary object of the whole process. 
+    * The multiple threads executing concurrently on the processor, the switching speed is so high that, it seems to be simultaneous.
+    * In this case, there arises the issue of deadlock, where both the threads are waiting for the same resources to be unlocked, but remains infinitely waiting.
+    * Multi threading can be acheived by two types - Extending the thread and Implementing the runnable interface. 
+    * Runnable is the functional interface, where it contains only on method caled run(), it has to be implemented in the class. 
+    * The method should not be called as run(), Because it results in the sequential execution, the method has to be called as start(), it creates the new thread in java and execute independently. 
+
+    Code;
+    class A implents runnable{
+        public void run(){
+            for(int i=0; i<10; i++){
+                System.out.println(i);
+            }
+        }
+    }
+    class B implents runnable{
+        public void run(){
+            for(int i=10; i<20; i++){
+                System.out.println(i);
+            }
+        }
+    }
+    class Main{
+        public static void main(String[] args){
+            A a = new A();
+            B b = new B();
+            a.start();
+            b.start();
+        }
+    }
